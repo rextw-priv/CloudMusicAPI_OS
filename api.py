@@ -1,7 +1,5 @@
 # coding=utf-8
 #  產生 AES key
-import os
-
 def createSecretKey(size):
   return (''.join(map(lambda xx: (hex(ord(xx))[2:]), os.urandom(size))))[0:16]
 

@@ -2,7 +2,7 @@
 
 from flask import *
 
-import api
+from api import *
 
 from Crypto.Cipher import AES
 from Crypto.PublicKey import RSA
