@@ -2,6 +2,7 @@
 #  產生 AES key
 
 import yaml, os
+from Crypto.Cipher import AES
 
 # Load and parse config file
 config = yaml.load(file('config.yaml', 'r'))
