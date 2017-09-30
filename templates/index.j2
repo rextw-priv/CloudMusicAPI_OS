@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>網易雲音樂解析</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocas-ui/2.3.3/tocas.css">
+  <link rel="stylesheet" href="/s/app.min.css" />
+</head>
+<body class="nojs" data-sitekey="{{ config.recaptcha.sitekey }}" data-verified="{{ 1 if verified else 0 }}">
+  <div class="ts container" id="app">
+    <h1>網易雲音樂解析</h1>
+    <p>Powered by: <a href="https://rext.ga">Rex</a> | <a href="https://jixun.moe/">Jixun</a></p>
+
+    <form method="POST" action="/sign" id="sign" class="ts form">
+      <div class="ts fluid input">
+        <input required id="sign-url" placeholder="音樂網址或 ID" v-model="src_url">
+      </div>
+      <br><br>
+      <div class="ts field">
+        <div class="ts horizontal stackable checkboxes">
+          <div class="ts radio checkbox">
+            <input type="radio" name="sign-rate" id="128" v-model="rate" value="128000">
+            <label for="128">普通音質 (128 kbps)</label>
+          </div>
+          <div class="ts radio checkbox">
+            <input type="radio" name="sign-rate" id="192" v-model="rate" value="192000">
+            <label for="192">高音質 (192 kbps)</label>
+          </div>
+          <div class="ts radio checkbox">
+            <input type="radio" name="sign-rate" id="320" v-model="rate" value="320000">
+            <label for="320">極高音質 (320 kbps)</label>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="nojs-hide js-hide vue-show-block" v-show="error">
+        <div class="ts negative message"><b>錯誤: </b><span v-text="error">{{ error }}</span></div><br><br>
+      </div>
+
+      <div v-bind:class="{ hide: verified }">
+        <div class="ts field">
+          <label>驗證碼</label>
+          <div id="recaptcha"></div>
+          <div class="js-hide ts warning message">請開啟 JavaScript 並允許 reCAPTCHA 載入。</div>
+        </div>
+      </div>
+
+      <div v-bind:class="{ hide: !url }">
+        <div class="ts underlined input fluid nojs-hide js-hide vue-show-block">
+          <label for="generated-url">產生的網址</label><br><br>
+          <input readonly id="generated-url" class="form-control" v-model="url" v-on:click="sel">
+        </div>
+        <br>
+        <div class="nojs-hide js-hide vue-show-block">
+          <label for="generated-table">歌曲資訊</label>
+          <table class="ts definition table" id="generated-table">
+            <tr>
+              <th class="center aligned">歌名</th>
+              <td><a v-bind:href="'http://music.163.com/#/song?id=' + song.id" v-text="song.name"></a></td>
+            </tr>
+
+            <tr>
+              <th class="center aligned">歌手</th>
+              <td>
+                <ul class="list-inline artists">
+                  <li v-for="a in song.artist">
+                    <a v-if="a.id" v-bind:href="'http://music.163.com/#/artist?id=' + a.id" v-text="a.name"></a>
+                    <span v-if="!a.id" v-text="a.name"></span>
+                  </li>
+                </ul>
+              </td>
+            </tr>
+          </table>
+        </div>
+
+        <div class="nojs-hide js-hide vue-show-block">
+          <audio v-bind:src="url" id="preview" controls>您的瀏覽器不支援HTML5音訊。</audio>
+        </div>
+      </div>
+
+      <div class="ts separated buttons">
+        <button type="submit" class="ts primary button" v-on:click="sign">解析</button>
+        <button id="copy" class="ts button" v-show="url" data-clipboard-target="#generated-url">複製網址</button>
+      </div>
+    </form>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.1.10/vue.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.16/clipboard.js"></script>
+  <script src="/s/app.min.js"></script>
+</body>
+</html>

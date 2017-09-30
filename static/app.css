@@ -1,0 +1,56 @@
+﻿body {
+    font-family: "Noto Sans CJK TC", "Helvetica Neue", Helvetica, 'Microsoft YaHei UI', Arial, sans-serif;
+}
+
+
+/* 隱藏 */
+
+.hide,
+
+/* 無 js 時隱藏 */
+
+.nojs .nojs-hide,
+
+/* 有 js 時隱藏 */
+
+.js .js-hide {
+    display: none !important;
+}
+
+
+/* 顯示 */
+
+.show-block,
+
+/* 有 js 時顯示 */
+
+.js .js-show-block,
+
+/* 無 js 時顯示 */
+
+.nojs .nojs-show-block,
+
+/* 有 vue 時顯示 */
+
+.vue .vue-show-block {
+    display: block;
+}
+
+
+/* 音樂預覽播放器 */
+
+#preview {
+    width: 100%;
+}
+
+
+/* 多藝術家時的分割線 */
+
+ul.artists li:not(:first-child)::before {
+    content: '•';
+    padding-right: 10px;
+}
+
+.no-margin-bottom {
+    margin-bottom: 0;
+}
