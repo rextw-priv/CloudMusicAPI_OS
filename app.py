@@ -23,18 +23,17 @@ encrypt = config['encrypt']
 for k, v in encrypt.iteritems():
   encrypt[k] = v.replace(" ", '')
 
+app = Flask(__name__, static_url_path='/static')
+app.config['recaptcha'] = config['recaptcha']
+app.debug = config['debug']
+app.session_interface = RedisSessionInterface(config['redis'])
+
 # https
 if config['ssl']:
   context = SSL.Context(SSL.SSLv23_METHOD)
   context.use_privatekey_file('private.key')
   context.use_certificate_file('certificate.crt')
   sslify = SSLify(app, permanent=True)
-
-
-app = Flask(__name__, static_url_path='/static')
-app.config['recaptcha'] = config['recaptcha']
-app.debug = config['debug']
-app.session_interface = RedisSessionInterface(config['redis'])
 
 nonce = encrypt['nonce']
 n, e = int(encrypt["n"], 16), int(encrypt["e"], 16)
