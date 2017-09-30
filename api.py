@@ -1,7 +1,8 @@
 # coding=utf-8
 #  產生 AES key
 
-import yaml, os
+import yaml, requests
+import base64, os, json
 from Crypto.Cipher import AES
 
 # Load and parse config file
