@@ -47,15 +47,6 @@ def req_recaptcha(response, remote_ip):
   print("req_recaptcha from %s, result: %s" % (remote_ip, r.text))
   return result['success']
 
-headers = {
-  'Origin': 'http://music.163.com',
-  'X-Real-IP': '120.24.208.241',
-  'Accept-Language': 'q=0.8,zh-CN;q=0.6,zh;q=0.2',
-  'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36',
-  'Referer': 'http://music.163.com/',
-  'Cookie': 'os=uwp;'
-}
-
 def sign_request(songId, rate):
   h = SHA256.new()
   h.update(str(songId))
