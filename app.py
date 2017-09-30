@@ -28,10 +28,10 @@ if config['ssl']:
   context = SSL.Context(SSL.SSLv23_METHOD)
   context.use_privatekey_file('private.key')
   context.use_certificate_file('certificate.crt')
+  sslify = SSLify(app, permanent=True)
 
 
 app = Flask(__name__, static_url_path='/static')
-sslify = SSLify(app, permanent=True)
 app.config['recaptcha'] = config['recaptcha']
 app.debug = config['debug']
 app.session_interface = RedisSessionInterface(config['redis'])
