@@ -17,7 +17,7 @@ def rsaEncrypt(text):
   return format(rs, 'x').zfill(256)
 
 def encrypted_request(text):
-      encText = aesEncrypt(aesEncrypt(text, nonce), secretKey)
+  encText = aesEncrypt(aesEncrypt(text, nonce), secretKey)
   data = {
     'params': encText,
     'encSecKey': encSecKey
@@ -25,7 +25,7 @@ def encrypted_request(text):
   return data
 
 def req_netease(url, payload):
-      data = encrypted_request(payload)
+  data = encrypted_request(payload)
   r = requests.post(url, data = data, headers=headers)
   result = json.loads(r.text)
   if result['code'] != 200:
