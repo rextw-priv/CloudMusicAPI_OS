@@ -161,5 +161,5 @@ def bot_get_song_url(songId, rate):
 if __name__ == "__main__":
   print("Running...")
   #app.run(host='0.0.0.0', port=port, debug = False, ssl_context=('certificate.crt', 'private.key'))
-  app.run(host=os.environ.get('OPENSHIFT_PYTHON_IP', '0.0.0.0'), port=8080, ssl_context=('certificate.crt', 'private.key'))
+  app.run(host='0.0.0.0', port=8080, ssl_context=('certificate.crt', 'private.key'))
   
