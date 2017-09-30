@@ -24,7 +24,7 @@ class RedisSessionInterface(SessionInterface):
   session_class = RedisSession
 
   def __init__(self, redis=None, prefix='session:'):
-    redis_url = os.getenv('REDISTOGO_URL', 'redis://redis:6379')
+    redis_url = os.getenv('REDISTOGO_URL', 'redis://localhost:6379')
     urlparse.uses_netloc.append('redis')
     url = urlparse.urlparse(redis_url)
     self.redis = Redis(host=url.hostname, port=url.port, db=0, password=os.getenv('REDIS_PASSWORD', url.password))
