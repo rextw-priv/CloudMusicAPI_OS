@@ -4,12 +4,11 @@ from flask import *
 
 import api
 
-from Crypto.Cipher import AES
-from Crypto.PublicKey import RSA
 from Crypto.Hash import SHA256
 from random import randint
+#from Crypto.PublicKey import RSA
 
-import base64, os, json
+import json
 import yaml, requests
 from OpenSSL import SSL
 import ssl
@@ -47,10 +46,6 @@ def req_recaptcha(response, remote_ip):
   result = json.loads(r.text);
   print("req_recaptcha from %s, result: %s" % (remote_ip, r.text))
   return result['success']
-
-print("Generating secretKey for current session...")
-secretKey = api.createSecretKey(16)
-encSecKey = api.rsaEncrypt(secretKey)
 
 headers = {
   'Origin': 'http://music.163.com',

@@ -5,6 +5,7 @@ import yaml, requests
 import base64, os, json
 from Crypto.Cipher import AES
 
+
 # Load and parse config file
 config = yaml.load(file('config.yaml', 'r'))
 encrypt = config['encrypt']
@@ -17,6 +18,15 @@ n, e = int(encrypt["n"], 16), int(encrypt["e"], 16)
 def createSecretKey(size):
   return (''.join(map(lambda xx: (hex(ord(xx))[2:]), os.urandom(size))))[0:16]
 
+def rsaEncrypt(text):
+  text = text[::-1]
+  rs = pow(int(text.encode('hex'), 16), e, n)
+  return format(rs, 'x').zfill(256)
+
+print("Generating secretKey for current session...")
+secretKey = createSecretKey(16)
+encSecKey = rsaEncrypt(secretKey)
+
 def aesEncrypt(text, secKey):
   pad = 16 - len(text) % 16
   text = text + pad * chr(pad)
@@ -24,11 +34,6 @@ def aesEncrypt(text, secKey):
   ciphertext = encryptor.encrypt(text)
   ciphertext = base64.b64encode(ciphertext)
   return ciphertext
-
-def rsaEncrypt(text):
-  text = text[::-1]
-  rs = pow(int(text.encode('hex'), 16), e, n)
-  return format(rs, 'x').zfill(256)
 
 def encrypted_request(text):
   encText = aesEncrypt(aesEncrypt(text, nonce), secretKey)
