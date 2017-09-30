@@ -1,5 +1,17 @@
 # coding=utf-8
 #  產生 AES key
+
+import yaml, os
+
+# Load and parse config file
+config = yaml.load(file('config.yaml', 'r'))
+encrypt = config['encrypt']
+for k, v in encrypt.iteritems():
+      encrypt[k] = v.replace(" ", '')
+
+nonce = encrypt['nonce']
+n, e = int(encrypt["n"], 16), int(encrypt["e"], 16)
+
 def createSecretKey(size):
   return (''.join(map(lambda xx: (hex(ord(xx))[2:]), os.urandom(size))))[0:16]
 
