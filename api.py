@@ -7,7 +7,7 @@ from Crypto.Cipher import AES
 
 
 # Load and parse config file
-config = yaml.load(file('config.yaml', 'r'))
+config = yaml.load(file('./config.yaml', 'r'))
 encrypt = config['encrypt']
 for k, v in encrypt.iteritems():
       encrypt[k] = v.replace(" ", '')
