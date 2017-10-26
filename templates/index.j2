@@ -51,12 +51,12 @@
       </div>
 
       <div v-show="url">
-        <div class="ts underlined input fluid nojs-hide js-hide vue-show-block">
+        <div class="ts underlined input fluid vue-show-block">
           <label for="generated-url">產生的網址</label><br><br>
           <input readonly id="generated-url" class="form-control" v-model="url" v-on:click="sel">
         </div>
         <br>
-        <div class="nojs-hide js-hide vue-show-block">
+        <div class="vue-show-block">
           <label for="generated-table">歌曲資訊</label>
           <table class="ts definition table" id="generated-table">
             <tr>
@@ -78,7 +78,7 @@
           </table>
         </div>
 
-        <div class="nojs-hide js-hide vue-show-block">
+        <div class="vue-show-block">
           <audio v-bind:src="url" id="preview" controls>您的瀏覽器不支援HTML5音訊。</audio>
         </div>
       </div>

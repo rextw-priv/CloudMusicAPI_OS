@@ -6,6 +6,7 @@
 
 html, body {
     height: 100%;
+    width: 100%;
 }
 
 footer {
@@ -28,7 +29,7 @@ footer {
 /* 有 js 時隱藏 */
 
 .js .js-hide {
-    display: none !important;
+    display: none
 }
 
 
