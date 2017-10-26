@@ -86,7 +86,7 @@
 
       <div class="ts separated buttons">
         <button type="submit" class="ts primary button" v-on:click="sign">解析</button>
-        <button id="copy" class="ts button nojs-hide js-hide" v-show="url" data-clipboard-target="#generated-url" v-cloak>複製網址</button>
+        <button id="copy" class="ts button" v-show="url" data-clipboard-target="#generated-url" style="display: none" v-cloak>複製網址</button>
       </div>
     </form>
   </div>
