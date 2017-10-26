@@ -8,7 +8,8 @@ html, body {
 }
 footer {
     /* 設定footer絕對位置在底部 */
-    position: absolute !important; 
+    margin-top: 1.5vh;
+    position: relative !important; 
     bottom: 0;
 }
 
