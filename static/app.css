@@ -2,6 +2,17 @@
     font-family: "Noto Sans CJK TC", "Helvetica Neue", Helvetica, 'Microsoft YaHei UI', Arial, sans-serif;
 }
 
+html, body {
+    /* 設定body高度為100% 拉到視窗可視的大小 */
+    height: 100%;
+}
+footer {
+    /* 設定footer絕對位置在底部 */
+    position: absolute;
+    bottom: 0;
+    /* 展開footer寬度 */
+    width: 100%;
+}
 
 /* 隱藏 */
 
