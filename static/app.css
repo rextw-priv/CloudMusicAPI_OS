@@ -8,12 +8,13 @@ html, body {
 }
 footer {
     /* 設定footer絕對位置在底部 */
-    position: absolute;
+    position: absolute !important; 
     bottom: 0;
-    /* 展開footer寬度 */
-    width: 100%;
 }
 
+#app {
+    margin-top: 3rem;
+}
 /* 隱藏 */
 
 .hide,
