@@ -50,7 +50,7 @@
         </div>
       </div>
 
-      <div v-bind:class="{ hide: !url }">
+      <div v-show="url">
         <div class="ts underlined input fluid nojs-hide js-hide vue-show-block">
           <label for="generated-url">產生的網址</label><br><br>
           <input readonly id="generated-url" class="form-control" v-model="url" v-on:click="sel">
