@@ -38,11 +38,11 @@
       </div>
 
 
-      <div class="nojs-hide js-hide v-show="error">
+      <div class="vue-hide" v-show="error">
         <div class="ts negative message"><b>錯誤: </b><span v-text="error">{{ error }}</span></div><br><br>
       </div>
 
-      <div v-bind:class="{ hide: verified } vue-hide">
+      <div class="vue-hide" v-show="verified>
         <div class="ts field">
           <label>驗證碼</label>
           <div id="recaptcha"></div>

@@ -51,6 +51,9 @@ footer {
     display: block;
 }
 
+.vue-hide {
+    display: none;
+}
 
 /* 音樂預覽播放器 */
 
