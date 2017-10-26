@@ -17,8 +17,6 @@ footer {
 
 #wrapper {
     min-height: 100%;
-    *display: table; /* For IE7 Hack */
-    *height: 100%; /* For IE7 Hack */
 }
 
 #app {
