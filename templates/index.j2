@@ -9,7 +9,10 @@
 </head>
 <body class="nojs" data-sitekey="{{ config.recaptcha.sitekey }}" data-verified="{{ 1 if verified else 0 }}">
   <div class="ts container" id="app">
-    <h1>網易雲音樂解析</h1>
+    <div class="ts heading slate">
+      <span class="header">網易雲音樂解析</span>
+      <span class="description">與朋友分享音樂！</span>
+    </div>
     <p>Powered by: <a href="https://rext.ga">Rex</a> | <a href="https://jixun.moe/">Jixun</a></p>
 
     <form method="POST" action="/sign" id="sign" class="ts form">
