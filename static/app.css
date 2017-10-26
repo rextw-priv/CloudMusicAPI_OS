@@ -1,16 +1,17 @@
 ﻿body {
     font-family: "Noto Sans CJK TC", "Helvetica Neue", Helvetica, 'Microsoft YaHei UI', Arial, sans-serif;
+    display: flex;
 }
 
 html, body {
-    /* 設定body高度為100% 拉到視窗可視的大小 */
     height: 100%;
+    width: 100%;
 }
+
 footer {
     /* 設定footer絕對位置在底部 */
-    margin-top: 1.5vh;
-    position: relative !important; 
-    bottom: 0;
+    margin-top: 2vh;
+    flex: 1;
 }
 
 #app {
