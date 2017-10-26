@@ -7,8 +7,9 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocas-ui/2.3.3/tocas.css">
   <link rel="stylesheet" href="/s/app.min.css" />
 </head>
-<body class="nojs" data-sitekey="{{ config.recaptcha.sitekey }}" data-verified="{{ true if verified else false }}">
-    <div class="ts fluid big heading slate" id="title">
+<body class="nojs" data-sitekey="{{ config.recaptcha.sitekey }}" data-verified="{{ 1 if verified else 0 }}">
+    <div id="title"></div>
+    <div class="ts fluid big heading slate">
       <div class="ts narrow container">
         <span class="header">網易雲音樂解析</span>
         <span class="description">與朋友分享音樂！</span>
@@ -38,11 +39,11 @@
       </div>
 
 
-      <div v-show="error">
+      <div v-if="error">
         <div class="ts negative message"><b>錯誤: </b><span v-text="error">{{ error }}</span></div><br><br>
       </div>
 
-      <div v-show="verified">
+      <div v-if="verified">
         <div class="ts field">
           <label>驗證碼</label>
           <div id="recaptcha"></div>
