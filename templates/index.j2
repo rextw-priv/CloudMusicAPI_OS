@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="/s/app.min.css" />
 </head>
 <body class="nojs" data-sitekey="{{ config.recaptcha.sitekey }}" data-verified="{{ 1 if verified else 0 }}">
+  <div id="wrapper">
     <div class="ts narrow container" id="title"></div>
     <div class="ts fluid big heading slate">
       <div class="ts narrow container">
@@ -90,7 +91,7 @@
       </div>
     </form>
   </div>
-
+  </div>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.1.10/vue.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.16/clipboard.js"></script>

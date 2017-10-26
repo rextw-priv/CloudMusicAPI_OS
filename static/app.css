@@ -1,7 +1,6 @@
 ﻿body {
     font-family: "Noto Sans CJK TC", "Helvetica Neue", Helvetica, 'Microsoft YaHei UI', Arial, sans-serif;
     flex-direction: column;
-    display: flex;
 }
 
 html, body {
@@ -12,12 +11,20 @@ html, body {
 footer {
     /* 設定footer絕對位置在底部 */
     margin-top: 2vh;
+    position: relative;
+    clear:both;
+}
+
+#wrapper {
+    min-height: 100%;
+    *display: table; /* For IE7 Hack */
+    *height: 100%; /* For IE7 Hack */
 }
 
 #app {
     margin-top: 3vh;
-    flex: 1;
     width: auto;
+    padding-bottom: 4em;
 }
 /* 隱藏 */
 
