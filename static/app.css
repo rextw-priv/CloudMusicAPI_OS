@@ -1,7 +1,10 @@
 ﻿body {
     font-family: "Noto Sans CJK TC", "Helvetica Neue", Helvetica, 'Microsoft YaHei UI', Arial, sans-serif;
-    display: flex;
     flex-direction: column;
+}
+
+#title{
+    display: flex;
 }
 
 html, body {
@@ -49,10 +52,6 @@ footer {
 
 .vue .vue-show-block {
     display: block;
-}
-
-.vue-hide {
-    display: none;
 }
 
 /* 音樂預覽播放器 */
