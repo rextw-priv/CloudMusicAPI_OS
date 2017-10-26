@@ -1,8 +1,28 @@
 ﻿body {
     font-family: "Noto Sans CJK TC", "Helvetica Neue", Helvetica, 'Microsoft YaHei UI', Arial, sans-serif;
+    flex-direction: column;
 }
 
+html, body {
+    height: 100%;
+    width: 100%;
+}
 
+footer {
+    /* 設定footer絕對位置在底部 */
+    margin-top: 2vh;
+    position: relative;
+    clear:both;
+}
+
+#wrapper {
+    min-height: 100%;
+}
+
+#app {
+    margin-top: 3vh;
+    padding-bottom: 4em;
+}
 /* 隱藏 */
 
 .hide,
@@ -14,7 +34,7 @@
 /* 有 js 時隱藏 */
 
 .js .js-hide {
-    display: none !important;
+    display: none
 }
 
 
@@ -36,7 +56,6 @@
     display: block;
 }
 
-
 /* 音樂預覽播放器 */
 
 #preview {
@@ -53,4 +72,8 @@ ul.artists li:not(:first-child)::before {
 
 .no-margin-bottom {
     margin-bottom: 0;
+}
+
+[v-cloak] {
+    display: none;
 }

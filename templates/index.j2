@@ -8,10 +8,15 @@
   <link rel="stylesheet" href="/s/app.min.css" />
 </head>
 <body class="nojs" data-sitekey="{{ config.recaptcha.sitekey }}" data-verified="{{ 1 if verified else 0 }}">
-  <div class="ts container" id="app">
-    <h1>網易雲音樂解析</h1>
-    <p>Powered by: <a href="https://rext.ga">Rex</a> | <a href="https://jixun.moe/">Jixun</a></p>
-
+  <div id="wrapper">
+    <div class="ts narrow container" id="title"></div>
+    <div class="ts fluid big heading slate">
+      <div class="ts narrow container">
+        <span class="header">網易雲音樂解析</span>
+        <span class="description">與朋友分享音樂！</span>
+        </div>
+    </div>
+  <div class="ts narrow container" id="app">
     <form method="POST" action="/sign" id="sign" class="ts form">
       <div class="ts fluid input">
         <input required id="sign-url" placeholder="音樂網址或 ID" v-model="src_url">
@@ -35,11 +40,11 @@
       </div>
 
 
-      <div class="nojs-hide js-hide vue-show-block" v-show="error">
+      <div v-if="error" v-cloak>
         <div class="ts negative message"><b>錯誤: </b><span v-text="error">{{ error }}</span></div><br><br>
       </div>
 
-      <div v-bind:class="{ hide: verified }">
+      <div v-bind:class="{ hide: verified }" v-cloak>
         <div class="ts field">
           <label>驗證碼</label>
           <div id="recaptcha"></div>
@@ -47,14 +52,14 @@
         </div>
       </div>
 
-      <div v-bind:class="{ hide: !url }">
+      <div v-show="url">
         <div class="ts underlined input fluid nojs-hide js-hide vue-show-block">
-          <label for="generated-url">產生的網址</label><br><br>
+          <h5 for="generated-url">產生的網址</h5>
           <input readonly id="generated-url" class="form-control" v-model="url" v-on:click="sel">
         </div>
         <br>
         <div class="nojs-hide js-hide vue-show-block">
-          <label for="generated-table">歌曲資訊</label>
+          <h5 for="generated-table">歌曲資訊</h5>
           <table class="ts definition table" id="generated-table">
             <tr>
               <th class="center aligned">歌名</th>
@@ -82,14 +87,19 @@
 
       <div class="ts separated buttons">
         <button type="submit" class="ts primary button" v-on:click="sign">解析</button>
-        <button id="copy" class="ts button" v-show="url" data-clipboard-target="#generated-url">複製網址</button>
+        <button id="copy" class="ts button" v-show="url" data-clipboard-target="#generated-url" style="display: none" v-cloak>複製網址</button>
       </div>
     </form>
   </div>
-
+  </div>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.1.10/vue.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.16/clipboard.js"></script>
   <script src="/s/app.min.js"></script>
+  <footer class="ts fluid slate">
+    <div class="ts narrow container ">
+      <span class="description">Powered By: <a href="https://rextw.com">Rex</a>, <a href="https://jixun.moe/">Jixun</a></span>
+    </div>
+    </footer>
 </body>
 </html>
