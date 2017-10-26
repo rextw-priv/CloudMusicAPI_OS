@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocas-ui/2.3.3/tocas.css">
   <link rel="stylesheet" href="/s/app.min.css" />
 </head>
-<body class="nojs" data-sitekey="{{ config.recaptcha.sitekey }}" data-verified="{{ 1 if verified else 0 }}">
+<body class="nojs" data-sitekey="{{ config.recaptcha.sitekey }}" data-verified="{{ true if verified else false }}">
     <div class="ts fluid big heading slate">
       <div class="ts narrow container">
         <span class="header">網易雲音樂解析</span>
@@ -85,7 +85,7 @@
 
       <div class="ts separated buttons">
         <button type="submit" class="ts primary button" v-on:click="sign">解析</button>
-        <button id="copy" class="ts button" v-show="url" data-clipboard-target="#generated-url">複製網址</button>
+        <button id="copy" class="ts button vue-hide" v-show="url" data-clipboard-target="#generated-url">複製網址</button>
       </div>
     </form>
   </div>
