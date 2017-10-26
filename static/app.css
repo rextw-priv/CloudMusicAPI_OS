@@ -1,11 +1,7 @@
 ﻿body {
     font-family: "Noto Sans CJK TC", "Helvetica Neue", Helvetica, 'Microsoft YaHei UI', Arial, sans-serif;
     flex-direction: column;
-}
-
-#title{
     display: flex;
-    width: 100%;
 }
 
 html, body {
@@ -16,11 +12,12 @@ html, body {
 footer {
     /* 設定footer絕對位置在底部 */
     margin-top: 2vh;
-    flex: 1;
 }
 
 #app {
     margin-top: 3vh;
+    flex: 1;
+    width: auto;
 }
 /* 隱藏 */
 
