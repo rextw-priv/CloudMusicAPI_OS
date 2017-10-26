@@ -17,7 +17,7 @@ from redis_session import RedisSessionInterface
 from flask_sslify import SSLify
 
 # Load and parse config file
-config = yaml.load(file('config.yaml', 'r'))
+config = yaml.load(open('config.yaml', 'r'))
 encrypt = config['encrypt']
 for k, v in encrypt.iteritems():
   encrypt[k] = v.replace(" ", '')
