@@ -69,3 +69,7 @@ ul.artists li:not(:first-child)::before {
 .no-margin-bottom {
     margin-bottom: 0;
 }
+
+[v-cloak] {
+    display: none;
+}
